@@ -1,0 +1,3 @@
+# Keep the pages directory tracked
+
+This file ensures the client/src/pages directory is committed to the repository. Remove when actual page files are added.
