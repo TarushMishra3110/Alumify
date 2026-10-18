@@ -5,6 +5,7 @@ import { useAuth } from '../auth.jsx';
 import { Avatar, Badge, Empty, Icon, Loading, PageHead, SessionCounter, TYPE_ICON, ago, fmtDate, matches, useLoad, useSearch, useToast } from '../ui.jsx';
 
 export function ReqItem({ r, onCancel }) {
+  
   return (
     <div className={`reqitem ${r.status === 'scheduled' ? 'sched' : ''}`}>
       <div className="row between" style={{ alignItems: 'flex-start', flexWrap: 'nowrap' }}>
@@ -26,7 +27,6 @@ export function ReqItem({ r, onCancel }) {
     </div>
   );
 }
-
 export default function StudentDashboard() {
   const { user } = useAuth(); const toast = useToast(); const q = useSearch();
   const { data, error, reload } = useLoad('/student/overview'); const [filter, setFilter] = useState('all');
@@ -48,7 +48,7 @@ export default function StudentDashboard() {
             <Link to="/student/new" className="btn primary xl"><Icon n="add" />Create New Request</Link>
             <p className="xs muted" style={{ marginTop: 10, fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase' }}><span className="dot-live" />Slot {Math.min(data.open + 1, data.maxOpen)} of {data.maxOpen} · {slots} open</p>
           </div></div>}>
-        Request a 15-minute coffee talk, a resume review or a guidance session with alumni, or ask faculty about an upcoming or running batch.
+        Request a 15-minute coffee talk, a resume review or a guidance session with alumni, or ask faculty about an upcoming batch or running batch.
       </PageHead>
       <div className="cols">
         <div id="directory">
